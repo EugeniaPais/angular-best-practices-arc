@@ -1,0 +1,23 @@
+<h2>Categories:</h2>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+	</tr>
+	<tr *ngFor="let item of categories">
+		<td>{{ item.id }}</td>
+		<td>{{ item.name }}</td>
+	</tr>
+</table>
+
+<form [formGroup]="form" >
+	<div style="padding:20px;">
+		<label>Name: </label>
+		<input  type="text" formControlName="name" />
+		<button (click)="onAdd()" > Add</button>
+	</div>
+
+	<p *ngIf="showUpdate">
+		Updating!
+	</p>
+</form>

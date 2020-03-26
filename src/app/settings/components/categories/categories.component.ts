@@ -14,7 +14,7 @@ export class CategoriesComponent implements OnInit {
   newCategory: CashflowCategory = new CashflowCategory();
   isUpdating$: Observable<boolean>;
   showUpdate: boolean;
-  categories: CashflowCategory[];
+  categories$: Observable<CashflowCategory[]>;
   form: FormGroup;
   constructor(
     private settingsFacade: SettingsFacade,
@@ -26,19 +26,11 @@ export class CategoriesComponent implements OnInit {
   ngOnInit() {
     this.initForm();
     this.isUpdating$.subscribe(val => {
-      console.log("is updating");
-
       this.showUpdate = val;
     });
 
-    this.settingsFacade
-      .loadCashflowCategories()
-      .subscribe((val: CashflowCategory[]) => {
-        this.categories = val;
-      });
-
-    this.settingsFacade.getCashflowCategories$().subscribe(val => {
-      this.categories = val;
+    this.settingsFacade.loadCashflowCategories().subscribe(val => {
+      this.categories$ = this.settingsFacade.getCashflowCategories$();
     });
   }
 

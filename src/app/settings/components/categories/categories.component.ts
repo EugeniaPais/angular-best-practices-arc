@@ -34,7 +34,6 @@ export class CategoriesComponent implements OnInit {
     this.settingsFacade
       .loadCashflowCategories()
       .subscribe((val: CashflowCategory[]) => {
-        console.log("get categories");
         this.categories = val;
       });
 

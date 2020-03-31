@@ -6,13 +6,14 @@ import { CashflowCategoryApi } from './api/cashflow-category-api';
 import { SettingsFacade } from './settings.facade';
 import { SettingsState } from './state/settings.state';
 import { SettingsRoutingModule } from './settings-routing.module';
+import { CategoryListComponent } from './components/category-list/category-list.component';
 
 
 @NgModule({
   imports: [
     CommonModule, SettingsRoutingModule, ReactiveFormsModule
   ],
-  declarations: [CategoriesComponent],
+  declarations: [CategoriesComponent, CategoryListComponent],
   providers: [CashflowCategoryApi, SettingsFacade, SettingsState, ReactiveFormsModule],
   exports:      [ CategoriesComponent]
 })

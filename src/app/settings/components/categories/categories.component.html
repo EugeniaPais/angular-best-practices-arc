@@ -1,1 +1,14 @@
-<app-category-list></app-category-list>
+<h2>Categories:</h2>
+<app-category-list [categories$]="categories$"></app-category-list>
+
+<form [formGroup]="form">
+	<div style="padding:20px;">
+		<label>Name: </label>
+		<input  type="text" formControlName="name" />
+		<button (click)="onAdd()" > Add</button>
+	</div>
+
+	<p *ngIf="showUpdate">
+		Updating!
+	</p>
+</form>

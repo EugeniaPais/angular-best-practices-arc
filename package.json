@@ -13,6 +13,7 @@
     "@angular/router": "^9.1.11",
     "core-js": "^3.6.5",
     "rxjs": "^6.5.5",
+    "subsink": "^1.0.1",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.3"
   },

@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Category } from '../../models/category';
 import { SettingsFacade } from '../../settings.facade';
 import { Observable } from 'rxjs';
+import { UnsubscribeOnDestroy } from '../../../shared/helpers/unsubscribe-on-destroy';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent extends UnsubscribeOnDestroy implements OnInit {
   isUpdating$: Observable<boolean>;
   categories$: Observable<Category[]>;
   form: FormGroup;
@@ -19,19 +20,20 @@ export class CategoriesComponent implements OnInit {
     private settingsFacade: SettingsFacade,
     private formBuilder: FormBuilder
   ) {
+    super();
     this.isUpdating$ = settingsFacade.isUpdating$();
   }
 
   ngOnInit() {
     this.initForm();
 
-    this.isUpdating$.subscribe(val => {
+    this.subs.add(this.isUpdating$.subscribe(val => {
       this.showUpdate = val;
-    });
+    }));
 
-    this.settingsFacade.loadCashflowCategories().subscribe(val => {
+    this.subs.add(this.settingsFacade.loadCashflowCategories().subscribe(val => {
       this.categories$ = this.settingsFacade.getCashflowCategories$();
-    });
+    }));
   }
 
   addCategory(category: Category) {

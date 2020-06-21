@@ -24,6 +24,7 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+
     this.isUpdating$.subscribe(val => {
       this.showUpdate = val;
     });

@@ -33,4 +33,9 @@ export class ApiResult {
     localStorage.setItem('categories', JSON.stringify(currentCategories));
     return category;
   }
+
+  public updateCategory(category: Category) {
+    // TODO add when we have more fields
+    return category;
+  }
 }

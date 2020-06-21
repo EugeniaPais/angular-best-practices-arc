@@ -6,23 +6,25 @@ import { ApiResult } from '../models/api-result';
 
 @Injectable()
 export class CategoryApi {
-  readonly API = '/api/cashflowCategories';
+  readonly API = '/api/Categories';
   api = new ApiResult();
 
   constructor(private http: HttpClient) { }
 
-  getCashflowCategories(): Observable<Category[]> {
-    // return this.http.get<CashflowCategory[]>(this.API);
+  getCategories(): Observable<Category[]> {
+    // return this.http.get<Category[]>(this.API);
     return of(this.api.getCategories());
   }
 
-  createCashflowCategory(category: Category): Observable<any> {
+  createCategory(category: Category): Observable<any> {
     // return this.http.post(this.API, category);
     const res = this.api.addCategory(category);
     return of(res);
   }
 
-  updateCashflowCategory(category: Category): Observable<any> {
-    return this.http.put(`${this.API}/${category.id}`, category);
+  updateCategory(category: Category): Observable<any> {
+    // return this.http.put(`${this.API}/${category.id}`, category);
+    const res = this.api.updateCategory(category);
+    return of(res);
   }
 }

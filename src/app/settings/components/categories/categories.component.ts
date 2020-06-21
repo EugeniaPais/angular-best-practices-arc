@@ -31,17 +31,17 @@ export class CategoriesComponent extends UnsubscribeOnDestroy implements OnInit 
       this.showUpdate = val;
     }));
 
-    this.subs.add(this.settingsFacade.loadCashflowCategories().subscribe(val => {
-      this.categories$ = this.settingsFacade.getCashflowCategories$();
+    this.subs.add(this.settingsFacade.loadCategories().subscribe(val => {
+      this.categories$ = this.settingsFacade.getCategories$();
     }));
   }
 
   addCategory(category: Category) {
-    this.settingsFacade.addCashflowCategory(category);
+    this.settingsFacade.addCategory(category);
   }
 
   updateCategory(category: Category) {
-    this.settingsFacade.updateCashflowCategory(category);
+    this.settingsFacade.updateCategory(category);
   }
 
   initForm() {

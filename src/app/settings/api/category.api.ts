@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Category } from '../models/category';
-import { ApiResult } from '../models/api-result';
+import { ApiResult } from './api-result';
 
 @Injectable()
 export class CategoryApi {

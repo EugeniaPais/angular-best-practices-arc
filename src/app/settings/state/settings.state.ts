@@ -5,7 +5,7 @@ import { Category } from '../models/category';
 @Injectable()
 export class SettingsState {
   private updating$ = new BehaviorSubject<boolean>(false);
-  private cashflowCategories$ = new BehaviorSubject<Category[]>(null);
+  private categories$ = new BehaviorSubject<Category[]>(null);
 
   isUpdating$() {
     return this.updating$.asObservable();
@@ -15,38 +15,38 @@ export class SettingsState {
     this.updating$.next(isUpdating);
   }
 
-  getCashflowCategories$() {
-    return this.cashflowCategories$.asObservable();
+  getCategories$() {
+    return this.categories$.asObservable();
   }
 
-  setCashflowCategories(categories: Category[]) {
-    this.cashflowCategories$.next(categories);
+  setCategories(categories: Category[]) {
+    this.categories$.next(categories);
   }
 
-  addCashflowCategory(category: Category) {
-    const currentValue = this.cashflowCategories$.getValue();
-    this.cashflowCategories$.next([...currentValue, category]);
+  addCategory(category: Category) {
+    const currentValue = this.categories$.getValue();
+    this.categories$.next([...currentValue, category]);
   }
 
-  updateCashflowCategory(updatedCategory: Category) {
-    const categories = this.cashflowCategories$.getValue();
+  updateCategory(updatedCategory: Category) {
+    const categories = this.categories$.getValue();
     const indexOfUpdated = categories.findIndex(
       category => category.id === updatedCategory.id
     );
     categories[indexOfUpdated] = updatedCategory;
-    this.cashflowCategories$.next([...categories]);
+    this.categories$.next([...categories]);
   }
 
-  updateCashflowCategoryId(categoryToReplace: Category, addedCategoryWithId: Category) {
-    const categories = this.cashflowCategories$.getValue();
+  updateCategoryId(categoryToReplace: Category, addedCategoryWithId: Category) {
+    const categories = this.categories$.getValue();
     const updatedCategoryIndex = categories.findIndex(category => category === categoryToReplace);
     categories[updatedCategoryIndex] = addedCategoryWithId;
-    this.cashflowCategories$.next([...categories]);
+    this.categories$.next([...categories]);
   }
 
-  removeCashflowCategory(categoryRemove: Category) {
-    const currentValue = this.cashflowCategories$.getValue();
-    this.cashflowCategories$.next(currentValue.filter(category => category !== categoryRemove));
+  removeCategory(categoryRemove: Category) {
+    const currentValue = this.categories$.getValue();
+    this.categories$.next(currentValue.filter(category => category !== categoryRemove));
   }
 
 }

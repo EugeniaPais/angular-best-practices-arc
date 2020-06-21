@@ -15,6 +15,6 @@ import { CategoryListComponent } from './components/category-list/category-list.
   ],
   declarations: [CategoriesComponent, CategoryListComponent],
   providers: [CashflowCategoryApi, SettingsFacade, SettingsState, ReactiveFormsModule],
-  exports:      [ CategoriesComponent]
+  exports: [CategoriesComponent]
 })
 export class SettingsModule { }

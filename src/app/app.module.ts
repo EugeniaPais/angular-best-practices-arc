@@ -18,6 +18,6 @@ import { SettingsModule } from './settings/settings.module';
   declarations: [AppComponent],
   bootstrap: [AppComponent],
   exports: [ReactiveFormsModule],
-  providers:[ReactiveFormsModule]  
+  providers: [ReactiveFormsModule]
 })
-export class AppModule {}
+export class AppModule { }

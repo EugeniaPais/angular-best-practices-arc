@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Observable, BehaviorSubject } from "rxjs";
-import { CashflowCategory } from "../models/cashflow-category";
+import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { CashflowCategory } from '../models/cashflow-category';
 
 @Injectable()
 export class SettingsState {
@@ -37,7 +37,7 @@ export class SettingsState {
     this.cashflowCategories$.next([...categories]);
   }
 
-   updateCashflowCategoryId(categoryToReplace: CashflowCategory, addedCategoryWithId: CashflowCategory) {
+  updateCashflowCategoryId(categoryToReplace: CashflowCategory, addedCategoryWithId: CashflowCategory) {
     const categories = this.cashflowCategories$.getValue();
     const updatedCategoryIndex = categories.findIndex(category => category === categoryToReplace);
     categories[updatedCategoryIndex] = addedCategoryWithId;

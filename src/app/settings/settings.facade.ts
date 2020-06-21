@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { tap } from "rxjs/operators";
-import { SettingsState } from "./state/settings.state";
-import { CashflowCategoryApi } from "./api/cashflow-category-api";
-import { CashflowCategory } from "./models/cashflow-category";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { SettingsState } from './state/settings.state';
+import { CashflowCategoryApi } from './api/cashflow-category-api';
+import { CashflowCategory } from './models/cashflow-category';
 
 @Injectable()
 export class SettingsFacade {
   constructor(
     private cashflowCategoryApi: CashflowCategoryApi,
     private settingsState: SettingsState
-  ) {}
+  ) { }
 
   isUpdating$(): Observable<boolean> {
     return this.settingsState.isUpdating$();

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CashflowCategory } from '../../models/cashflow-category';
+import { Category } from '../../models/category';
 import { SettingsFacade } from '../../settings.facade';
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class CategoriesComponent implements OnInit {
   isUpdating$: Observable<boolean>;
-  categories$: Observable<CashflowCategory[]>;
+  categories$: Observable<Category[]>;
   form: FormGroup;
   showUpdate: boolean;
 
@@ -33,11 +33,11 @@ export class CategoriesComponent implements OnInit {
     });
   }
 
-  addCategory(category: CashflowCategory) {
+  addCategory(category: Category) {
     this.settingsFacade.addCashflowCategory(category);
   }
 
-  updateCategory(category: CashflowCategory) {
+  updateCategory(category: Category) {
     this.settingsFacade.updateCashflowCategory(category);
   }
 
@@ -49,7 +49,7 @@ export class CategoriesComponent implements OnInit {
 
   onAdd() {
     if (this.form.get('name').value) {
-      const add: CashflowCategory = {
+      const add: Category = {
         name: this.form.get('name').value
       };
       this.addCategory(add);

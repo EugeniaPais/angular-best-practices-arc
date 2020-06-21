@@ -5,7 +5,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CashflowCategory } from '../../models/cashflow-category';
+import { Category } from '../../models/category';
 import { SettingsFacade } from '../../settings.facade';
 import { Observable } from 'rxjs';
 
@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoryListComponent implements OnInit {
-  @Input() categories$: Observable<CashflowCategory[]>;
+  @Input() categories$: Observable<Category[]>;
   constructor() { }
 
   ngOnInit() { }

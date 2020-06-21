@@ -1,4 +1,4 @@
-import { CashflowCategory } from './cashflow-category';
+import { Category } from './category';
 
 export class ApiResult {
   private categories = [
@@ -16,7 +16,7 @@ export class ApiResult {
     }
   ];
 
-  public getCategories(): CashflowCategory[] {
+  public getCategories(): Category[] {
     let cat = localStorage.getItem('categories');
     if (!cat) {
       cat = JSON.stringify(this.categories);
@@ -26,7 +26,7 @@ export class ApiResult {
     return result;
   }
 
-  public addCategory(category: CashflowCategory) {
+  public addCategory(category: Category) {
     const currentCategories = JSON.parse(localStorage.getItem('categories'));
     category.id = currentCategories.length + 1;
     currentCategories.push(category);

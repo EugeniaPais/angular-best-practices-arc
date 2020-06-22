@@ -60,3 +60,4 @@ export class CategoriesComponent extends UnsubscribeOnDestroy implements OnInit 
     }
   }
 }
+

@@ -6,15 +6,16 @@ import { CategoryApi } from './api/category.api';
 import { SettingsFacade } from './settings.facade';
 import { SettingsState } from './state/settings.state';
 import { SettingsRoutingModule } from './settings-routing.module';
-import { CategoryListComponent } from './components/category-list/category-list.component';
+import { CategoryTableComponent } from './components/category-table/category-table.component';
+import { DashboardTotalComponent } from './components/dashboard-totals/dashboard-totals.component';
 
 
 @NgModule({
   imports: [
     CommonModule, SettingsRoutingModule, ReactiveFormsModule
   ],
-  declarations: [CategoriesComponent, CategoryListComponent],
+  declarations: [CategoriesComponent, CategoryTableComponent, DashboardTotalComponent],
   providers: [CategoryApi, SettingsFacade, SettingsState, ReactiveFormsModule],
-  exports: [CategoriesComponent]
+  exports: [CategoriesComponent, DashboardTotalComponent]
 })
 export class SettingsModule { }

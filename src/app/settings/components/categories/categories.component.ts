@@ -56,6 +56,7 @@ export class CategoriesComponent extends UnsubscribeOnDestroy implements OnInit 
         name: this.form.get('name').value
       };
       this.addCategory(add);
+      this.form.get('name').setValue('');
     }
   }
 }

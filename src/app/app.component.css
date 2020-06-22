@@ -1,3 +1,32 @@
 p {
   font-family: Lato;
 }
+
+.total {
+  position: relative;
+  display: inline;
+  float: right;
+}
+
+
+.main-container {
+  margin: 5px auto 20px auto;
+  padding: 15px;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: solid 1px #ccc;
+  box-shadow: 0px 0px 4px 0px #ccc;
+  background-color: white;
+
+  display: flow-root;
+  min-height: 79vh;
+  max-width: 86.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-container aside {
+  display: inline;
+  float: left;
+}

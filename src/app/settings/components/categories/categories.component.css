@@ -1,3 +1,8 @@
 .form-add div {
     padding: 20px;
 }
+
+.form-add button {
+    margin-left: 3px;
+
+}

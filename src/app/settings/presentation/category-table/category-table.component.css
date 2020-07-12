@@ -4,3 +4,7 @@
     height: 24px;
     overflow: hidden;
 }
+
+.icon:hover {
+    cursor: pointer;
+}

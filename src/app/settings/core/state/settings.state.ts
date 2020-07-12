@@ -7,7 +7,7 @@ export class SettingsState {
   private updating$ = new BehaviorSubject<boolean>(false);
   private categories$ = new BehaviorSubject<Category[]>(null);
 
-  isUpdating$() {
+  isUpdating$(): Observable<boolean> {
     return this.updating$.asObservable();
   }
 
@@ -15,7 +15,7 @@ export class SettingsState {
     this.updating$.next(isUpdating);
   }
 
-  getCategories$() {
+  getCategories$(): Observable<Category[]> {
     return this.categories$.asObservable();
   }
 
@@ -34,13 +34,6 @@ export class SettingsState {
       category => category.id === updatedCategory.id
     );
     categories[indexOfUpdated] = updatedCategory;
-    this.categories$.next(categories);
-  }
-
-  updateCategoryId(categoryToReplace: Category, addedCategoryWithId: Category) {
-    const categories = this.categories$.getValue();
-    const updatedCategoryIndex = categories.findIndex(category => category === categoryToReplace);
-    categories[updatedCategoryIndex] = addedCategoryWithId;
     this.categories$.next(categories);
   }
 

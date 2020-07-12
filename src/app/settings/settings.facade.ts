@@ -27,17 +27,17 @@ export class SettingsFacade extends UnsubscribeOnDestroy {
   }
 
   loadCategories(): void {
-    this.categoryApi
-      .getCategories().subscribe(categories => {
-        this.settingsState.setCategories(categories);
-      });
+    this.subs.add(this.categoryApi
+      .get().subscribe(categories => {
+        this.settingsState.setCategories(categories); // Update State
+      }));
   }
 
   addCategory(category: Category) {
     this.settingsState.setUpdating(true);
     // Call the API
     this.subs.add(this.categoryApi
-      .createCategory(category)
+      .create(category)
       .subscribe(
         (value: Category) => this.settingsState.addCategory(value), // Update State
         (error: any) => console.log(error),
@@ -49,9 +49,9 @@ export class SettingsFacade extends UnsubscribeOnDestroy {
   updateCategory(category: Category) {
     this.settingsState.setUpdating(true);
     this.subs.add(this.categoryApi
-      .updateCategory(category)
+      .update(category)
       .subscribe(
-        () => this.settingsState.updateCategory(category),
+        () => this.settingsState.updateCategory(category), // Update State
         (error: any) => console.log(error),
         () => this.settingsState.setUpdating(false)
       ));
@@ -61,9 +61,9 @@ export class SettingsFacade extends UnsubscribeOnDestroy {
   deleteCategory(id: number) {
     this.settingsState.setUpdating(true);
     this.subs.add(this.categoryApi
-      .deleteCategory(id)
+      .delete(id)
       .subscribe(
-        () => this.loadCategories(),
+        () => this.loadCategories(), // Update State
         (error: any) => console.log(error),
         () => this.settingsState.setUpdating(false)
       ));

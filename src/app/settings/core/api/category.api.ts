@@ -11,23 +11,24 @@ export class CategoryApi {
 
   constructor(private http: HttpClient) { }
 
-  getCategories(): Observable<Category[]> {
+  get(): Observable<Category[]> {
     // return this.http.get<Category[]>(this.API);
     return of(this.api.getCategories());
   }
 
-  createCategory(category: Category): Observable<Category> {
+  create(category: Category): Observable<Category> {
     // return this.http.post(this.API, category);
     const res = this.api.addCategory(category);
     return of(res);
   }
 
-  deleteCategory(id: number): Observable<boolean> {
+  delete(id: number): Observable<boolean> {
+    //  http.delete(this.API, ...
     const res = this.api.deleteCategory(id);
     return of(true);
   }
 
-  updateCategory(category: Category): Observable<any> {
+  update(category: Category): Observable<Category> {
     // return this.http.put(`${this.API}/${category.id}`, category);
     const res = this.api.updateCategory(category);
     return of(res);

@@ -5,3 +5,7 @@
 .form-add button {
     margin-left: 3px;
 }
+
+.form-add button:hover {
+    cursor: pointer;
+}

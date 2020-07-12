@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { SettingsState } from './state/settings.state';
-import { CategoryApi } from './api/category.api';
-import { Category } from './models/category';
+import { SettingsState } from './core/state/settings.state';
+import { CategoryApi } from './core/api/category.api';
+import { Category } from './core/models/category';
 import { UnsubscribeOnDestroy } from '../shared/helpers/unsubscribe-on-destroy';
 
 @Injectable()

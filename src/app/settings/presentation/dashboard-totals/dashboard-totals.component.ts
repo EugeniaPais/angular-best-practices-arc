@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UnsubscribeOnDestroy } from '../../../shared/helpers/unsubscribe-on-destroy';
 import { Observable } from 'rxjs';
-import { Category } from '../../models/category';
+import { Category } from '../../core/models/category';
 import { SettingsFacade } from '../../settings.facade';
 
 @Component({

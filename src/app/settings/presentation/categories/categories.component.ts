@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Category } from '../../models/category';
+import { Category } from '../../core/models/category';
 import { SettingsFacade } from '../../settings.facade';
 import { Observable } from 'rxjs';
 import { UnsubscribeOnDestroy } from '../../../shared/helpers/unsubscribe-on-destroy';

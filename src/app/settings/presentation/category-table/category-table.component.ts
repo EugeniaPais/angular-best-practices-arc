@@ -4,7 +4,7 @@ import {
   Input,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { Category } from '../../models/category';
+import { Category } from '../../core/models/category';
 import { Observable } from 'rxjs';
 
 @Component({

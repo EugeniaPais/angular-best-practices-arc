@@ -3,9 +3,7 @@ p {
 }
 
 .total {
-  position: relative;
-  display: inline;
-  float: right;
+  max-width: 11rem;
 }
 
 
@@ -20,13 +18,8 @@ p {
   background-color: white;
 
   display: flow-root;
-  min-height: 79vh;
-  max-width: 86.25rem;
+  margin: 0.5rem;
   position: relative;
   overflow: hidden;
-}
-
-.main-container aside {
-  display: inline;
   float: left;
 }

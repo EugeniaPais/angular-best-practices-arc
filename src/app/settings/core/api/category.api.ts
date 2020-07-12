@@ -16,10 +16,15 @@ export class CategoryApi {
     return of(this.api.getCategories());
   }
 
-  createCategory(category: Category): Observable<any> {
+  createCategory(category: Category): Observable<Category> {
     // return this.http.post(this.API, category);
     const res = this.api.addCategory(category);
     return of(res);
+  }
+
+  deleteCategory(id: number): Observable<boolean> {
+    const res = this.api.deleteCategory(id);
+    return of(true);
   }
 
   updateCategory(category: Category): Observable<any> {

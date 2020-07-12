@@ -34,6 +34,12 @@ export class ApiResult {
     return category;
   }
 
+  public deleteCategory(id: number) {
+    let currentCategories = JSON.parse(localStorage.getItem('categories'));
+    currentCategories = currentCategories.filter(val => val.id !== id);
+    localStorage.setItem('categories', JSON.stringify(currentCategories));
+  }
+
   public updateCategory(category: Category) {
     // TODO add when we have more fields
     return category;

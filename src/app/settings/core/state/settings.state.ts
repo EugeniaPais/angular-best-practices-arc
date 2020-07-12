@@ -34,19 +34,14 @@ export class SettingsState {
       category => category.id === updatedCategory.id
     );
     categories[indexOfUpdated] = updatedCategory;
-    this.categories$.next([...categories]);
+    this.categories$.next(categories);
   }
 
   updateCategoryId(categoryToReplace: Category, addedCategoryWithId: Category) {
     const categories = this.categories$.getValue();
     const updatedCategoryIndex = categories.findIndex(category => category === categoryToReplace);
     categories[updatedCategoryIndex] = addedCategoryWithId;
-    this.categories$.next([...categories]);
-  }
-
-  removeCategory(categoryRemove: Category) {
-    const currentValue = this.categories$.getValue();
-    this.categories$.next(currentValue.filter(category => category !== categoryRemove));
+    this.categories$.next(categories);
   }
 
 }

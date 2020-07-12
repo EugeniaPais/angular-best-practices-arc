@@ -1,5 +1,5 @@
 <h2>Categories:</h2>
-<app-category-table [categories$]="categories$"></app-category-table>
+<app-category-table [categories$]="categories$" (deleteEvent)="onDeleteCategory($event)"></app-category-table>
 
 <form [formGroup]="form" class="form-add">
 	<div>
@@ -8,7 +8,7 @@
 		<button (click)="onAdd()"> Add</button>
 	</div>
 
-	<p *ngIf="showUpdate">
+	<p *ngIf="isUpdating$ | async">
 		Updating!
 	</p>
 </form>

@@ -26,12 +26,11 @@ export class SettingsFacade extends UnsubscribeOnDestroy {
     return this.settingsState.getCategories$();
   }
 
-  loadCategories(): Observable<Category[]> {
-    return this.categoryApi
-      .getCategories()
-      .pipe(
-        tap(categories => this.settingsState.setCategories(categories))
-      );
+  loadCategories(): void {
+    this.categoryApi
+      .getCategories().subscribe(categories => {
+        this.settingsState.setCategories(categories);
+      });
   }
 
   addCategory(category: Category) {
@@ -53,6 +52,18 @@ export class SettingsFacade extends UnsubscribeOnDestroy {
       .updateCategory(category)
       .subscribe(
         () => this.settingsState.updateCategory(category),
+        (error: any) => console.log(error),
+        () => this.settingsState.setUpdating(false)
+      ));
+  }
+
+
+  deleteCategory(id: number) {
+    this.settingsState.setUpdating(true);
+    this.subs.add(this.categoryApi
+      .deleteCategory(id)
+      .subscribe(
+        () => this.loadCategories(),
         (error: any) => console.log(error),
         () => this.settingsState.setUpdating(false)
       ));

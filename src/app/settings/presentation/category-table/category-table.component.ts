@@ -2,7 +2,9 @@ import {
   Component,
   OnInit,
   Input,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { Category } from '../../core/models/category';
 import { Observable } from 'rxjs';
@@ -15,7 +17,13 @@ import { Observable } from 'rxjs';
 })
 export class CategoryTableComponent implements OnInit {
   @Input() categories$: Observable<Category[]>;
+  @Output() deleteEvent = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit() { }
+
+  onDelete(id) {
+    this.deleteEvent.emit(id);
+  }
 }

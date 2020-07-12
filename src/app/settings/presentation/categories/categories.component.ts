@@ -21,19 +21,15 @@ export class CategoriesComponent extends UnsubscribeOnDestroy implements OnInit 
     private formBuilder: FormBuilder
   ) {
     super();
-    this.isUpdating$ = settingsFacade.isUpdating$();
+
   }
 
   ngOnInit() {
+    this.isUpdating$ = this.settingsFacade.isUpdating$();
+    this.categories$ = this.settingsFacade.getCategories$();
     this.initForm();
 
-    this.subs.add(this.isUpdating$.subscribe(val => {
-      this.showUpdate = val;
-    }));
-
-    this.subs.add(this.settingsFacade.loadCategories().subscribe(val => {
-      this.categories$ = this.settingsFacade.getCategories$();
-    }));
+    this.settingsFacade.loadCategories();
   }
 
   addCategory(category: Category) {
@@ -42,6 +38,10 @@ export class CategoriesComponent extends UnsubscribeOnDestroy implements OnInit 
 
   updateCategory(category: Category) {
     this.settingsFacade.updateCategory(category);
+  }
+
+  onDeleteCategory(id: number) {
+    this.settingsFacade.deleteCategory(id);
   }
 
   initForm() {

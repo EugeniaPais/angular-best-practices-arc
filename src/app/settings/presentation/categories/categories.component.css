@@ -1,9 +1,9 @@
 .form-add div {
-    padding: 20px;
+    padding-top: 1rem;
 }
 
 .form-add button {
-    margin-left: 3px;
+    margin-left: 0.3rem;
 }
 
 .form-add button:hover {

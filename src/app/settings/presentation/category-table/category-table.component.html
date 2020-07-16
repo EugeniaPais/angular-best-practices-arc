@@ -5,9 +5,8 @@
 	</tr>
 	<tr *ngFor="let item of categories$ | async">
 		<td>{{ item.id }}</td>
-		<td>{{ item.name }}</td>
-		<td (click)="onDelete(item.id)">
-			<img class="icon" src="https://img.icons8.com/windows/16/000000/delete-forever.png" />
-		</td>
+		<td>{{ item.name }}
+      	<img (click)="onDelete(item.id)" class="icon" src="https://img.icons8.com/windows/16/000000/delete-forever.png" />
+    </td>
 	</tr>
 </table>

@@ -11,12 +11,12 @@ export class SettingsState {
     return this.updating$.asObservable();
   }
 
-  setUpdating(isUpdating: boolean) {
-    this.updating$.next(isUpdating);
-  }
-
   getCategories$(): Observable<Category[]> {
     return this.categories$.asObservable();
+  }
+
+  setUpdating(isUpdating: boolean) {
+    this.updating$.next(isUpdating);
   }
 
   setCategories(categories: Category[]) {

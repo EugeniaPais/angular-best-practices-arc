@@ -4,15 +4,15 @@ export class ApiResult {
   private categories = [
     {
       id: 1,
-      name: 'Health'
+      name: 'Healthcare'
     },
     {
       id: 2,
-      name: 'Banking'
+      name: 'Payroll'
     },
     {
       id: 3,
-      name: 'Logistic'
+      name: 'Insurance'
     }
   ];
 

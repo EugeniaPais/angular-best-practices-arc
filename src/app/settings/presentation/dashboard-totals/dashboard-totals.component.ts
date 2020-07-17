@@ -22,6 +22,7 @@ export class DashboardTotalComponent extends UnsubscribeOnDestroy implements OnI
   ngOnInit(): void {
     this.categories$ = this.settingsFacade.getCategories$();
 
+    // We also could use subscribe
     // this.categories$.subscribe(val => this.total = val.length);
   }
 
